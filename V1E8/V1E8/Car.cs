@@ -4,6 +4,7 @@ namespace TestProject
 {
     class Car : Object
     {
+
         public Car()
         {
 
@@ -25,10 +26,15 @@ namespace TestProject
             get { return width; }
             set { width = value; }
         }
+
         public int Height { get; set; }
         public int Color { get; set; }
 
-        public abstract int GetSize();
+        public virtual int GetSize()
+        {
+            return Width * Height;
+        }
+
 
 
     }
