@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace TestProject
 {
-    public class Purse: IMoneyManagement
+    public class Wife : IMoneyManagement
     {
         public int Amount { get; set; } = 0;
-        public Purse() { }
+        public Wife() { }
 
         public void Add(int amount)
         {
-            this.Amount = this.Amount + amount;
+            this.Amount += amount;
         }
 
         public void Spend(int amount)
         {
-            if ((this.Amount - amount) < 0) { return; }
-
-            this.Amount = this.Amount - amount;
+            
+            this.Amount -= amount;
         }
     }
+
 }

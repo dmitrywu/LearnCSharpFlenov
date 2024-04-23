@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace TestProject
 {
-    class Bmw320i : Car
+    class Bmw320i : Car, IMoneyManagement, IDisposable
     {
+        public int Amount { get; set; } = 0;
+
+        public Bmw320i() { }
         public Bmw320i(int width, int height, int color, int length) : base(width, height, color)
         {
             this.Length = length;
@@ -21,6 +24,24 @@ namespace TestProject
         public override int GetSize()
         {
             return Width * Height * Length;
+        }
+        private void BlowEngine() { }
+
+
+        public void Add(int amount)
+        {
+            this.Amount = this.Amount + amount;
+        }
+
+        public void Spend(int amount)
+        {
+            if ((this.Amount - amount) < 0) { BlowEngine();  return; }
+
+            this.Amount = this.Amount - amount;
+        }
+
+        public void Dispose()
+        {
         }
     }
 }
